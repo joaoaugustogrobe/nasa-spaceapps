@@ -1,15 +1,15 @@
-var http = require("http");
+var http = require('http');
 http.createServer(function (request, response) {
-   // Send the HTTP header 
-   // HTTP Status: 200 : OK
-   // Content Type: text/plain
-   response.writeHead(200, {
-   	'Content-Type': 'text/plain', 
-   	'Access-Control-Allow-Origin': '*'
-   });
-   
-   // Send the response body as "Hello World"
-   response.end('1;2;3');
+  // Send the HTTP header
+  // HTTP Status: 200 : OK
+  // Content Type: text/plain
+  response.writeHead(200, {
+    'Content-Type': 'text/plain',
+    'Access-Control-Allow-Origin': '*',
+  });
+
+  // Send the response body as "Hello World"
+  response.end(`${Math.floor(Math.random() * 10)};${Math.floor(Math.random() * 10)}`);
 }).listen(8081);
 
 // Console will print the message
