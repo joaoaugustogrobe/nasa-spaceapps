@@ -1,18 +1,61 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <table border=1>
+      <tr>
+        <th>Time</th>
+        <th>Radiation</th>
+        <th>Temperature</th>
+        <!--th>Pressure</th-->
+      </tr>
+      <tr v-for="row in rows">
+        <td>{{ row.time }}</td>
+        <td>{{ row.radiation }}</td>
+        <td>{{ row.temperature }}</td>
+        <!-- td>{{ row.pressure }}</td -->
+      </tr>
+    </table>
+
+
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
+<script>
+import axios from "axios";
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  data: () => ({
+    rows: []
+  }), 
+  methods: {
+    requestApi: function() {
+      const _this = this;
+      setTimeout(function(){
+        axios.get('http://192.168.4.142:80', {crossdomain: true})
+        .then( (response) => {
+          const data = (response.data + '').split(';');
+          const rows = _this.rows;
+          const now = new Date();
+          rows.push({
+            time: `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`,
+            radiation: data[0],
+            temperature:data[1],
+            //pressure:data[2]
+          });
+          _this.rows = rows;
+
+
+        })
+        .catch( (error) => {
+          console.log(error);
+        } ); 
+      }, 2000);
+    }
+  },
+  created: function(){//semelhante a sintaxe de DATA
+    this.requestApi();
   }
+
 }
 </script>
 
