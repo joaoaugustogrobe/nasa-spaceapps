@@ -1,4 +1,4 @@
-# nasa
+# NASA space apps
 
 ## Project setup
 ```
