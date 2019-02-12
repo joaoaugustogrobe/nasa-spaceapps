@@ -2,7 +2,7 @@
 Este projeto foi desenvolvido durante o evento/hackathon NASA space apps - 2018
 A aplicação feita em VUE tem como objetivo receber dados de sensores, acoplanos num drone contendo um ESP8266.
 
-##O que aprendi com o projeto
+## O que aprendi com o projeto
 Além das soft-skills de trabalhar em grupo e realizar um projeto inteiro dentro de um curto periodo de tempo, aprendi a criar um ambiente de desenvolvimento VUE utilizando o node.js; Também tive meu primeiro contato realizando com requisições HTTP através do axios e desenvolvi um servidor javascript para gerar dados simulando os dados que seriam recebidos pelo drone, pois o mesmo ainda estava sendo construido por outros integrantes da equipe.
 
 ### Pagina oficial do projeto:
