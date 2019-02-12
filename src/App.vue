@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="h1">
-      <h1>NOME DA SOLUÇÃO</h1>
+      <h1>M.E.V - 1.0</h1>
     </div>
     <div id="buttons">
       <div style="cursor: pointer;" v-on:click="onClickDiv('all')" class="block">
@@ -29,7 +29,6 @@
         <h2>Temperatura</h2>
       </div>
     </div>
-    <hr/>
     <table border=1 v-if="view == 'all'">
       <tr>
         <th>Time</th>
